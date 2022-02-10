@@ -1,57 +1,54 @@
 # Rtsp2MP4
-±£´æ RTSP Á÷Îª mp4 ÎÄ¼ş
+ä¿å­˜ RTSP æµä¸º mp4 æ–‡ä»¶
 
-## Ò»¡¢ÏîÄ¿½¨Á¢
+## ä¸€ã€é¡¹ç›®å»ºç«‹
 
 Visual Studio 2017
 
-- ĞÂ½¨¿ØÖÆÌ¨ÏîÄ¿
+- æ–°å»ºæ§åˆ¶å°é¡¹ç›®
 
-- ÏÂÔØ FFMPEG 64Î» SDK (https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.2-full_build-shared.7z)£¬²¢½âÑ¹µ½ C ÅÌ¸ùÄ¿Â¼ÏÂ
+- ä¸‹è½½ FFMPEG 64ä½ SDK (https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.2-full_build-shared.7z)ï¼Œå¹¶è§£å‹åˆ° C ç›˜æ ¹ç›®å½•ä¸‹
 
-- ĞÂ½¨Â¼ÖÆÀà Recorder.h ºÍ Recoder.cpp
-
-- IDE Ìí¼Ó FFMPEG SDK:
+- IDE æ·»åŠ  FFMPEG SDK:
 	
-	- ÏîÄ¿ÊôĞÔ£¬ÇĞ»»µ½ Debug - x64
+	- é¡¹ç›®å±æ€§ï¼Œåˆ‡æ¢åˆ° Debug - x64
 	  ```
 	  C/C++
-	      ³£¹æ->¸½¼ÓÄ¿Â¼£ºÔö¼Ó ffmpeg µÄ include Ä¿Â¼£¬ÀıÈç"C:\ffmpeg-4.3.2\include"
-	  Á´½ÓÆ÷
-        ³£¹æ->¸½¼Ó¿âÄ¿Â¼£ºÔö¼Ó ffmpeg µÄ lib Ä¿Â¼£¬ÀıÈç"C:\ffmpeg-4.3.2\lib"
-    µ÷ÊÔ
-        »·¾³£ºPATH=%PATH%;C:\ffmpeg-4.3.2\bin
-    ```
-    
+	      å¸¸è§„->é™„åŠ ç›®å½•ï¼šå¢åŠ  ffmpeg çš„ include ç›®å½•ï¼Œä¾‹å¦‚"C:\ffmpeg-4.3.2\include"
+	  é“¾æ¥å™¨
+	      å¸¸è§„->é™„åŠ åº“ç›®å½•ï¼šå¢åŠ  ffmpeg çš„ lib ç›®å½•ï¼Œä¾‹å¦‚"C:\ffmpeg-4.3.2\lib"
+	  è°ƒè¯•
+	      ç¯å¢ƒï¼šPATH=%PATH%;C:\ffmpeg-4.3.2\bin
+	  ```
+	  
+## äºŒã€ç¤ºä¾‹ä»£ç 
 
-## ¶ş¡¢Ê¾Àı´úÂë
+å®˜æ–¹çš„ç¤ºä¾‹ä»£ç ï¼šhttps://ffmpeg.org/doxygen/trunk/remuxing_8c-example.html
 
-¹Ù·½µÄÊ¾Àı´úÂë£ºhttps://ffmpeg.org/doxygen/trunk/remuxing_8c-example.html
-
-ĞŞ¸ÄÄÚÈİ
+ä¿®æ”¹å†…å®¹
 
 ```
-É¾µôÁË #include <libavutil/timestamp.h>
+åˆ æ‰äº† #include <libavutil/timestamp.h>
 
 in_filename = "rtsp://192.168.0.49/24.mp4";
 out_filename = "camera_1.mp4";
 	
 stream_mapping = (int *)av_malloc(stream_mapping_size * sizeof(*stream_mapping));
 
-while(1) Ñ­»·Ôö¼ÓÁËÌø³öÌõ¼ş£¬ÒÔÖ´ĞĞºóÃæµÄ av_write_trailer
+while(1) å¾ªç¯å¢åŠ äº†è·³å‡ºæ¡ä»¶ï¼Œä»¥æ‰§è¡Œåé¢çš„ av_write_trailer
 ```
 
 
 
-×¢Òâ£º
+æ³¨æ„ï¼š
 
-- Ò»¶¨ÒªÖ´ĞĞ av_write_trailer£¬·ñÔò mp4 ÎÄ¼ş²»ÄÜ²¥·Å
+- ä¸€å®šè¦æ‰§è¡Œ av_write_trailerï¼Œå¦åˆ™ mp4 æ–‡ä»¶ä¸èƒ½æ’­æ”¾
 
-- AVStream::codec  ±»ÉùÃ÷ÎªÒÑ·ñ¾ö
-  ffmpeg 3.3 ¿ªÊ¼£¬ĞÂ°æ±¾AVStreamµÄ·â×°Á÷²ÎÊıÓÉcodecÌæ»»codecpar£¬¼´ avcodec-58 ¿ªÊ¼¡£Èç¹ûÔÚÔËĞĞ´úÂëµÄÊ±ºò£¬IDEÌáÊ¾£¬***ÉùÃ÷ÒÑ±»·ñ¾ö£¬½â¾ö£º
+- AVStream::codec  è¢«å£°æ˜ä¸ºå·²å¦å†³
+  ffmpeg 3.3 å¼€å§‹ï¼Œæ–°ç‰ˆæœ¬AVStreamçš„å°è£…æµå‚æ•°ç”±codecæ›¿æ¢codecparï¼Œå³ avcodec-58 å¼€å§‹ã€‚å¦‚æœåœ¨è¿è¡Œä»£ç çš„æ—¶å€™ï¼ŒIDEæç¤ºï¼Œ***å£°æ˜å·²è¢«å¦å†³ï¼Œè§£å†³ï¼š
 
   ```
-  1. ÏîÄ¿ÊôĞÔ  C/C++ > ³£¹æ -> SDL checks¹Øµô
-  2. ´úÂëÖĞÌí¼Ó±àÒë²ÎÊıĞÅÏ¢  #pragma warning(disable: 4996) 
+  1. é¡¹ç›®å±æ€§  C/C++ > å¸¸è§„ -> SDL checkså…³æ‰
+  2. ä»£ç ä¸­æ·»åŠ ç¼–è¯‘å‚æ•°ä¿¡æ¯  #pragma warning(disable: 4996) 
   ```
 
